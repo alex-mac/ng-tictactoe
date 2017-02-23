@@ -3,7 +3,9 @@ app.controller('HomeCtrl', ['$scope', function($scope) {
 
   let currentSymbol = 'O';
   $scope.check = function(index) {
-    $scope.status[index] = currentSymbol;
-    currentSymbol = currentSymbol === 'O' ? 'X' : 'O';
+    if ($scope.status[index] === '') {
+      $scope.status[index] = currentSymbol;
+      currentSymbol = currentSymbol === 'O' ? 'X' : 'O';
+    }
   }
 }]);
