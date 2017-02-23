@@ -1,0 +1,9 @@
+.container {
+  background:#212121;
+  height: 100vh;
+}
+
+.board{
+  min-width:360px;
+  min-height: 360px;
+}

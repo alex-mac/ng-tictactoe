@@ -1,0 +1,11 @@
+<md-content layout-padding layout-wrap class="container">
+   <div layout="row" layout-align="center center" layout-wrap>
+    <md-card class="board">
+      <md-grid-list id="girdList" md-cols="3" md-row-height="1:1">
+        <md-grid-tile ng-repeat="cell in status track by $index">
+          <md-button class="md-raised numbtn">Tile</md-button>
+        </md-grid-tile>
+      </md-grid-list>
+    </md-card>
+  </div>
+</md-content>
