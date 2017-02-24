@@ -22,6 +22,14 @@ app.controller('HomeCtrl', ['$scope', function($scope) {
     }
   };
 
+  let computerMakesMove = function() {
+    let nextInt = Math.floor(Math.random() * 9);
+    while ($scope.status[nextInt] !== '') {
+      nextInt = Math.floor(Math.random() * 9);
+    }
+    $scope.status[nextInt] = currentSymbol;
+  }
+
   $scope.check = function(index) {
     if ($scope.status[index] === '') {
       $scope.status[index] = currentSymbol;
@@ -30,17 +38,11 @@ app.controller('HomeCtrl', ['$scope', function($scope) {
         console.log($scope.status);
         alert('game over!');
       } else {
-        let nextInt = Math.floor(Math.random() * 9);
-        while ($scope.status[nextInt] !== '') {
-          nextInt = Math.floor(Math.random() * 9);
-        }
-        $scope.status[nextInt] = currentSymbol;
+        computerMakesMove();
         if (hasWinner($scope.status)) {
-          console.log($scope.status);
           alert('game over!');
         }
         currentSymbol = currentSymbol === 'O' ? 'X' : 'O';
-
       }
     }
   }
