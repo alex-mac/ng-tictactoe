@@ -29,6 +29,18 @@ app.controller('HomeCtrl', ['$scope', function($scope) {
       if (hasWinner($scope.status)) {
         console.log($scope.status);
         alert('game over!');
+      } else {
+        let nextInt = Math.floor(Math.random() * 9);
+        while ($scope.status[nextInt] !== '') {
+          nextInt = Math.floor(Math.random() * 9);
+        }
+        $scope.status[nextInt] = currentSymbol;
+        if (hasWinner($scope.status)) {
+          console.log($scope.status);
+          alert('game over!');
+        }
+        currentSymbol = currentSymbol === 'O' ? 'X' : 'O';
+
       }
     }
   }
